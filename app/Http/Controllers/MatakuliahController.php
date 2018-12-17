@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Matakuliah;
-use App\Mahasiswa;
-
-
-class MahasiswaController extends Controller
+class MatakuliahController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +13,8 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        
-        $mahasiswa = Mahasiswa::all();
-        return view('mahasiswa.index',compact('mahasiswa'));
+        $matakuliah = Matakuliah::all();
+        return view('matakuliah.index',compact('matakuliah'));
     }
 
     /**
@@ -28,8 +24,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        $matakuliah = Matakuliah::all();
-        return view('mahasiswa.create', compact('matakuliah'));
+        return view('matakuliah.create');
     }
 
     /**
@@ -40,14 +35,15 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $mahasiswa = new Mahasiswa();
-        $mahasiswa->nama = $request->input('nama');
-        $mahasiswa->alamat = $request->input('alamat');
-        $mahasiswa->matakuliah = $request->input('matakuliah');
+        $matakuliah = new Matakuliah();
+        $matakuliah->nama_matakuliah = $request->input('nama_matakuliah');
+        $matakuliah->tempat = $request->input('tempat');
+        $matakuliah->hari = $request->input('hari');
+        $matakuliah->jam = $request->input('jam');
 
-        $mahasiswa->save();
+        $matakuliah->save();
 
-        return redirect()->route('mahasiswa.index');
+        return redirect()->route('matakuliah.index');
     }
 
     /**
@@ -58,7 +54,7 @@ class MahasiswaController extends Controller
      */
     public function show($id)
     {
-        return view('mahasiswa.show');
+        //
     }
 
     /**
@@ -69,8 +65,7 @@ class MahasiswaController extends Controller
      */
     public function edit($id)
     {
-        $mahasiswa = Mahasiswa::findOrFail($id);
-        return view('mahasiswa.edit', compact('mahasiswa'));
+        //
     }
 
     /**
@@ -82,12 +77,7 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mahasiswa = Mahasiswa::find($id);
-        $mahasiswa->nama = $request->input('nama');
-        $mahasiswa->alamat = $request->input('alamat');
-        $mahasiswa->save();
-        
-        return redirect()->route('mahasiswa.index')->with('info','Data Berhasil di Update!');
+        //
     }
 
     /**
@@ -98,8 +88,6 @@ class MahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        $mahasiswa = Mahasiswa::where('id_mahasiswa', $id)->delete();
-
-        return redirect('/mahasiswa')->with('info','Data Berhasil Dihapus!');
+        //
     }
 }

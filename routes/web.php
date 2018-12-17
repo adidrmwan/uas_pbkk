@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::resource('mahasiswa', 'MahasiswaController');
 Route::get('mahasiswa/{id}/destroy', 'MahasiswaController@destroy')->name('mahasiswa.delete');
+
+Route::resource('matakuliah', 'MatakuliahController');
+Route::get('matakuliah/{id}/destroy', 'MatakuliahController@destroy')->name('matakuliah.delete');

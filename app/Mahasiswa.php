@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Matakuliah;
 
 class Mahasiswa extends Model
 {
@@ -11,7 +12,14 @@ class Mahasiswa extends Model
     public $incrementing = true;
     protected $fillable = [
 	    'nama',
-	    'alamat', 
-    ]; 
+	    'alamat',
+        'matakuliah', 
+    ];
+
+ 	public function matakuliahs()
+    {
+        return $this->belongsToMany(Matakuliah::class);
+    }
+
 
 }

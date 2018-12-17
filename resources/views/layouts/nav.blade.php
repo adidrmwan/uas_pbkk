@@ -38,6 +38,7 @@
         <li class="header">MENU</li>
         <li><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
         <li><a href="/mahasiswa"><i class="fa fa-user"></i> <span>Mahasiswa</span></a></li>
+        <li><a href="/matakuliah"><i class="fa fa-sticky-note-o"></i> <span>Mata kuliah</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
